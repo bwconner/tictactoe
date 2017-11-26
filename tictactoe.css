@@ -1,0 +1,23 @@
+table {
+	background: #000;
+}
+
+table td {
+	background: #fff;
+	border: 1px solid #000;
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+}
+
+td.played {
+	cursor: default;
+}
+
+td.player-cell {
+	background: green;
+}
+
+td.computer-cell {
+	background: red;
+}
