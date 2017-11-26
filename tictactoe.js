@@ -44,9 +44,64 @@ function beginComputerTurn() {
 	alert(Math.max(...currentBoard[1]));
 	alert(Math.max(...currentBoard[2]));
 
-	if ((".played").length <= 0) {
-
+	// If first move go after a corner, add in a small chance the cpu doesnt
+	if ($(".played").length <= 0) {
+		var initialThought = (Math.floor(Math.random() * 10));
+		if (initialThought) {
+			var chooseCellAtRandom = (Math.floor(Math.random() * 9));
+			switch(chooseCellAtRandom) {
+				case 0:
+					$("#A1").addClass("computer-cell");
+					break;
+				case 1:
+					$("#A2").addClass("computer-cell");
+					break;
+				case 2:
+					$("#A3").addClass("computer-cell");
+					break;
+				case 3:
+					$("#B1").addClass("computer-cell");
+					break;
+				case 4:
+					$("#B2").addClass("computer-cell");
+					break;
+				case 5:
+					$("#B3").addClass("computer-cell");
+					break;
+				case 6:
+					$("#C1").addClass("computer-cell");
+					break;
+				case 7:
+					$("#C2").addClass("computer-cell");
+					break;
+				case 8:
+					$("#C3").addClass("computer-cell");
+					break;
+				default:
+					$("#B2").addClass("computer-cell");
+			}			
+		} else {
+			var cornerSelection = (Math.floor(Math.random() * 4));
+			switch(cornerSelection) {
+				case 0:
+					$("#A1").addClass("computer-cell");
+					break;
+				case 1:
+					$("#A3").addClass("computer-cell");
+					break;
+				case 2:
+					$("#C1").addClass("computer-cell");
+					break;
+				case 3:
+					$("#C3").addClass("computer-cell");
+					break;
+				default:
+					$("#C1").addClass("computer-cell");
+			}
+		}
 	}
+
+	endComputerTurn();
 }
 
 function endComputerTurn() {
@@ -61,10 +116,11 @@ function beginPlayerTurn() {
 function endPlayerTurn() {
 	playerTurn = false;
 	$(".turn-information").text("Computer's Turn");
+	beginComputerTurn()
 }
 
 function checkForWin() {
-	
+
 }
  
 function resetBoard() {
